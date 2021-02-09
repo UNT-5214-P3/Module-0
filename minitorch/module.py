@@ -21,14 +21,12 @@ class Module:
         return self.__dict__["_modules"].values()
 
     def train(self):
-        "Set the mode of this module and all descendent modules to `train`."
-        # TODO: Implement for Task 0.4.
-        raise NotImplementedError('Need to implement for Task 0.4')
+        super().__init__()
+        return self.mode = "train"
 
     def eval(self):
-        "Set the mode of this module and all descendent modules to `eval`."
-        # TODO: Implement for Task 0.4.
-        raise NotImplementedError('Need to implement for Task 0.4')
+        super().__init__()
+        return self.mode = "eval"
 
     def named_parameters(self):
         """
