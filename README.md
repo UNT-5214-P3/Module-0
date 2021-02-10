@@ -11,3 +11,14 @@
 ```
 python run_tests.py
 ```
+
+#### Answers for Task 0.5:
+
+##### Simple dataset
+![Simple dataset](images/simple.png)
+
+##### Split dataset
+![Split dataset](images/split.png)
+
+##### Xor dataset
+![Xor](images/xor.png)
