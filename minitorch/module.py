@@ -21,23 +21,22 @@ class Module:
         return self.__dict__["_modules"].values()
 
     def train(self):
-        super().__init__()
-        return self.mode = "train"
+        self.mode = 'train'
+        for x in self.modules():
+            x.train()
 
     def eval(self):
-        super().__init__()
-        return self.mode = "eval"
+        self.mode = 'eval'
+        for x in self.modules():
+            x.eval()
 
     def named_parameters(self):
-        """
-        Collect all the parameters of this module and its descendents.
-
-
-        Returns:
-            dict: Each name (key) and :class:`Parameter` (value) under this module.
-        """
-        # TODO: Implement for Task 0.4.
-        raise NotImplementedError('Need to implement for Task 0.4')
+        a = dict(self._parameters)
+        for module_name, module in self._modules.items():
+            module_named_params = module.named_parameters()
+            for param_name, param in module_named_params.items():
+                a[module_name + '.' + param_name] = param
+        return a
 
     def parameters(self):
         return self.named_parameters().values()
